@@ -73,18 +73,19 @@ public class MedicalHistoryController {
   /**
    * Retrieve the id for the user with the passed email address.
    */
-  @RequestMapping(value="/get-by-email")
+  @RequestMapping(value="/get-by-id")
   @ResponseBody
-  public String getByEmail(String email) {
-    String userId;
+  public MedicalHistory getById(String id) {
+//    String userId;
+    MedicalHistory user;
     try {
-      MedicalHistory user = userDao.getByEmail(email);
-      userId = String.valueOf(user.getId());
+      user = userDao.getById(8L); //getByEmail(email);
+      //userId = String.valueOf(user.getId());
     }
     catch (Exception ex) {
-      return "MedicalHistory not found: " + ex.toString();
+      return null;
     }
-    return "The user id is: " + userId;
+    return user;
   }
   
   /**

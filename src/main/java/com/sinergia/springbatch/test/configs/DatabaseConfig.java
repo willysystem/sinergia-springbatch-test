@@ -14,6 +14,8 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.sinergia.springbatch.test.util.LocalDateAttributeConverter;
+
 /**
  * Contains database configurations.
  */
@@ -96,8 +98,7 @@ public class DatabaseConfig {
   public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
     return new PersistenceExceptionTranslationPostProcessor();
   }
-
-
+  
   // ------------------------
   // PRIVATE FIELDS
   // ------------------------
