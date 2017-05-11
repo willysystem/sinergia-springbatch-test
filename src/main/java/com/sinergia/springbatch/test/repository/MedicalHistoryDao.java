@@ -75,7 +75,8 @@ public class MedicalHistoryDao {
 	 * Return the user having the passed id.
 	 */
 	public MedicalHistory getById(long id) {
-		return entityManager.find(MedicalHistory.class, id);
+		MedicalHistory  t = entityManager.find(MedicalHistory.class, id);
+		return t;
 	}
 
 	/**

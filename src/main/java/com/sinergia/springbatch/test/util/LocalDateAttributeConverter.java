@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.inject.Singleton;
 import javax.persistence.AttributeConverter;
+import javax.persistence.Convert;
 import javax.persistence.Converter;
 
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 //@Converter(autoApply = true)
 //@Component
+//@Convert
 public class LocalDateAttributeConverter /* implements AttributeConverter<Object, String>*/ {
 
 	public LocalDateAttributeConverter(){

@@ -79,7 +79,7 @@ public class MedicalHistoryController {
 //    String userId;
     MedicalHistory user;
     try {
-      user = userDao.getById(8L); //getByEmail(email);
+      user = userDao.getById(12L); //getByEmail(email);
       //userId = String.valueOf(user.getId());
     }
     catch (Exception ex) {
@@ -97,7 +97,7 @@ public class MedicalHistoryController {
     try {
       MedicalHistory user = userDao.getById(id);
       user.setInitDate(new Date());
-      user.setData("{name='Juan'}");
+      //user.setData("{name='Juan'}");
       userDao.update(user);
     }
     catch (Exception ex) {

@@ -1,16 +1,16 @@
 package com.sinergia.springbatch.test.domain;
 
-import javax.persistence.EntityListeners;
+import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Transient;
 
-import com.sinergia.springbatch.test.domain.listener.MedicalHistoryListener;
+import com.sinergia.springbatch.test.util.ConverterDataImpl;
 
 
 /**
  * @generated
  */
 @javax.persistence.Entity
-@EntityListeners({MedicalHistoryListener.class})
 public class MedicalHistory implements java.io.Serializable {
 	/**
 	 * @generated
@@ -26,12 +26,6 @@ public class MedicalHistory implements java.io.Serializable {
 	/**
 	 * @generated
 	 */
-	@javax.persistence.Column(length = 10485760)
-	private String data;
-
-	/**
-	 * @generated
-	 */
 	@javax.persistence.OneToMany(mappedBy = "medicalHistory")
 	private java.util.Set<Person> persons = new java.util.HashSet<Person>();
 
@@ -43,16 +37,16 @@ public class MedicalHistory implements java.io.Serializable {
 	/**
 	 * @generated
 	 */
-	@javax.persistence.OneToOne(mappedBy = "medicalHistory")
-	@Transient
+
+	@Column(length = 10485760)
+	@Convert(converter=ConverterDataImpl.class)
 	private History history;
 
 	/**
 	 * @generated
 	 */
 	public String toString() {
-		return "MedicalHistory" + " id=" + id + " data=" + data + " initDate="
-				+ initDate;
+		return "MedicalHistory" + " id=" + id + " initDate=" + initDate;
 	}
 
 	/**
@@ -73,20 +67,6 @@ public class MedicalHistory implements java.io.Serializable {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	 * @generated
-	 */
-	public String getData() {
-		return this.data;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setData(String data) {
-		this.data = data;
 	}
 
 	/**
